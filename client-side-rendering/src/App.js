@@ -15,11 +15,12 @@ class App extends Component {
         {/* react-router-dom에서 제공하는 태그입니다. */}
         {/* Route 컴포넌트의 path경로에 따라서 지정해둔 component가 보여지는 기능 */}
         {/* path 부분에 url 경로를 넣고, component의 to의 경로에서 보여주고 싶은 컴포넌트를 넣는다. */}
-        
-        <Route path="/" exact component={Main} />
-        <Route path="/home" component={Home} />
-        <Route path="/first" component={First}/>
-        <Route path="/second" component={Second}/>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/first" component={First}/>
+          <Route path="/second" component={Second}/>
+          <Route path="/" component={Main} />
+        </Switch>
       </div>
     );
   }

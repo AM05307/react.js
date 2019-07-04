@@ -22,7 +22,7 @@ class App extends Component {
           <Route path="/" component={Main} />
         </Switch>
       </div>
-    );
+    ); 
   }
 }
 

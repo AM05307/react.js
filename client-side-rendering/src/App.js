@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, Link, NavLink, withRouter } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/home';
@@ -7,8 +7,20 @@ import First from './components/first';
 import Second from './components/second';
 import Main from './components/main';
 
-
 class App extends Component {
+
+  // componentDidMount(){
+  //   console.log(this.props);
+  // };
+
+  go = () => {
+    this.props.history.go(1);
+  };
+
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render () {
     const activeStyle = {
       color: '#FFB9D5'
@@ -17,6 +29,11 @@ class App extends Component {
     return (
      <div className="App">
         클라이언트 사이드 렌더링을 해 보겠습니다.
+
+        <div>
+          <button onClick={this.goBack}>뒤로 가기</button>
+          <button onClick={this.go}>앞으로 가기</button>
+        </div>
 
         <div>
           <ul className="link-list">
@@ -62,4 +79,7 @@ class App extends Component {
   }
 }
 
-export default App;
+// 원래는 이 형태 
+// export default App;
+// withRouter로 감싸 줍니다.
+export default withRouter(App);
